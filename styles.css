@@ -1,14 +1,14 @@
 /* Estilo para o vídeo de fundo */
 #background-video {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
     z-index: -1; /* Coloca o vídeo atrás do conteúdo */
-    background-size: cover;
+    object-fit: cover; /* Garante que o vídeo preencha a tela sem distorção */
     overflow: hidden;
 }
 
@@ -16,13 +16,27 @@
 .content-wrapper {
     position: relative;
     z-index: 1; /* Garante que o conteúdo fique acima do vídeo */
-    background: rgba(255, 255, 255, 0.8); /* Fundo translúcido opcional */
+    color: white;
+    text-align: center;
     padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para contraste com o vídeo */
+    max-width: 80%;
+    margin: 50px auto;
     border-radius: 10px;
 }
 
-/* Outras estilizações para cabeçalho, rodapé, etc. */
-header, footer, nav {
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
-    color: white;
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    #background-video {
+        min-width: 100vw;
+        min-height: auto;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+        margin: 20px;
+        font-size: 0.9rem;
+    }
 }
